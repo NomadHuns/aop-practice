@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.aopexam.handler.aop.LoginUser;
+import shop.mtcoding.aopexam.handler.aop.SessionUser;
 import shop.mtcoding.aopexam.model.User;
 
 @RestController
@@ -36,7 +37,7 @@ public class UserController {
     }
 
     @GetMapping("/auth/1")
-    public String authInfo(@LoginUser User principal) {
+    public String authInfo(@SessionUser User principal) {
         System.out.println("자동으로 값 주입됨");
         System.out.println(principal.getUsername());
 
